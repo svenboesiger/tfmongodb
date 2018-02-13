@@ -26,8 +26,6 @@ MongoDBConnector::MongoDBConnector(std::string database_name,
   uri_ = uri;
 };
 
-MongoDBConnector::~MongoDBConnector() {};
-
 tensorflow::Status MongoDBConnector::connect() {
   tensorflow::Status connection_status = this->connect_to_server();
   if (connection_status != tensorflow::Status::OK())
@@ -66,7 +64,7 @@ bool MongoDBConnector::isStringInDocumentsName(mongocxx::cursor cursor, std::str
 }
 
 tensorflow::Status MongoDBConnector::query_database() {
-  this->cursor_ = std::make_shared<mongocxx::cursor>(coll_.find(document{} << finalize));
+  this->cursor_ = new mongocxx::cursor(coll_.find(document{} << finalize));
 }
 
 tensorflow::Status MongoDBConnector::retrieve_row(std::tuple<std::string, std::string> &mongodb_row) {
@@ -79,5 +77,9 @@ tensorflow::Status MongoDBConnector::retrieve_row(std::tuple<std::string, std::s
   iter++;
   return tensorflow::Status::OK();
 };
+
+MongoDBConnector::~MongoDBConnector() {
+  delete this->cursor_;
+}
 
 } // namespace

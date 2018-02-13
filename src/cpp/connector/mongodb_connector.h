@@ -42,14 +42,14 @@ class MongoDBConnector {
   tensorflow::Status connect();
   tensorflow::Status query_database();
   tensorflow::Status retrieve_row(std::tuple<std::string, std::string> &mongodb_row);
-  ~MongoDBConnector();
+  virtual ~MongoDBConnector();
 
  private:
   std::string uri_, database_name_, collection_name_;
   mongocxx::client conn_{};
   mongocxx::database db_{};
   mongocxx::collection coll_{};
-  std::shared_ptr<mongocxx::cursor> cursor_{nullptr};
+  mongocxx::cursor* cursor_ = nullptr;
   tensorflow::Status connect_to_server();
   bool isStringInDocumentsName(mongocxx::cursor cursor, std::string searchString);
 };

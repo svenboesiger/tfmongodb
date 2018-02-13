@@ -29,7 +29,7 @@ from tensorflow.python.data.ops import iterator_ops
 import tensorflow as tf
 
 class MongoDBDataset(Dataset):
-  """A Kafka Dataset that consumes the message.
+  """A MongoDB Dataset that consumes the message.
   """
 
   def __init__(self, database, collection):
@@ -71,21 +71,25 @@ class MongoDBDataset(Dataset):
     return dtypes.string
 
 
-repeat_dataset = MongoDBDataset("names", "firstNames")
-repeat_dataset2 = repeat_dataset.repeat()
-batch_dataset = repeat_dataset2.batch(2)
+dataset = MongoDBDataset("eccounting", "users")
+dataset = dataset.batch(2)
+#dataset = dataset.batch(2)
+#dataset.shuffle(buffer_size=20)
 
-iterator = iterator_ops.Iterator.from_structure(batch_dataset.output_types)
-init_op = iterator.make_initializer(repeat_dataset2)
-init_batch_op = iterator.make_initializer(batch_dataset)
+iterator = tf.data.Iterator.from_structure(dataset.output_types, dataset.output_shapes)
+#iterator = dataset.make_initializable_iterator()
+test_iterator = iterator.make_initializer(dataset)
 get_next = iterator.get_next()
 
-
 with tf.Session() as sess:
-    # Basic test: read from topic 0.
-    sess.run(init_batch_op, feed_dict={})
 
-    for i in range(20):
-        print(sess.run(get_next))
+    for _ in range(10):
 
-    print("Shutting down...")
+        # Basic test: read from topic 0.
+        sess.run(test_iterator)
+
+        while True:
+            try:
+                print(sess.run(get_next))
+            except tf.errors.OutOfRangeError:
+                break
