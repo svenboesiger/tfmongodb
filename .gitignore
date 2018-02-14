@@ -2,3 +2,5 @@ cmake-build-debug/
 temp/
 venv_tf1.5/
 .idea/	
+dist/
+dist.sh

@@ -50,6 +50,7 @@ tensorflow::Status MongoDBConnector::connect_to_server() {
     uri = mongocxx::uri{"mongodb://localhost:27017"};
   else
     uri = mongocxx::uri{uri_};
+
   conn_ = mongocxx::client{mongocxx::uri{}};
   return tensorflow::Status::OK();
 }

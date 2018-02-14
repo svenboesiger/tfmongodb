@@ -1,4 +1,6 @@
-#include "tensorflow/core/kernels/dataset.h"
+#include "tensorflow/core/kernels/data/dataset.h"
+#include "tensorflow/core/framework/partial_tensor_shape.h"
+#include "tensorflow/core/framework/tensor.h"
 #include "../connector/mongodb_connector.h"
 
 namespace tensorflow {

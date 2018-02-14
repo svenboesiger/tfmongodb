@@ -29,67 +29,63 @@ from tensorflow.python.data.ops import iterator_ops
 import tensorflow as tf
 
 class MongoDBDataset(Dataset):
-  """A MongoDB Dataset that consumes the message.
-  """
-
-  def __init__(self, database, collection):
-    """Create a KafkaReader.
-
-    Args:
-      topics: A `tf.string` tensor containing one or more subscriptions,
-              in the format of [topic:partition:offset:length],
-              by default length is -1 for unlimited.
-      servers: A list of bootstrap servers.
-      group: The consumer group id.
-      eof: If True, the kafka reader will stop on EOF.
-      timeout: The timeout value for the Kafka Consumer to wait
-               (in millisecond).
+    """A MongoDB Dataset that consumes the message.
     """
-    module = tf.load_op_library('./../../cmake-build-debug/libTFMongoDB.so')
 
-    super(MongoDBDataset, self).__init__()
-    self._database = ops.convert_to_tensor(
-        database, dtype=dtypes.string, name="database")
-    self._collection = ops.convert_to_tensor(
-      collection, dtype=dtypes.string, name="collection")
-    self.rr_ = module.mongo_dataset(self._database, self._collection)
+    def __init__(self, database, collection):
+        """Create a MongoDataset.
+
+        Args:
+          topics: A `tf.string` tensor containing one or more subscriptions,
+                  in the format of [topic:partition:offset:length],
+                  by default length is -1 for unlimited.
+          servers: A list of bootstrap servers.
+          group: The consumer group id.
+          eof: If True, the kafka reader will stop on EOF.
+          timeout: The timeout value for the Kafka Consumer to wait
+                   (in millisecond).
+        """
+        module = tf.load_op_library('./libTFMongoDB.so')
+
+        super(MongoDBDataset, self).__init__()
+        self._database = ops.convert_to_tensor(
+            database, dtype=dtypes.string, name="database")
+        self._collection = ops.convert_to_tensor(
+            collection, dtype=dtypes.string, name="collection")
+        self.rr_ = module.mongo_dataset(self._database, self._collection)
 
 
-  def _as_variant_tensor(self):
-      return self.rr_
+    def _as_variant_tensor(self):
+        return self.rr_
 
-  @property
-  def output_classes(self):
-    return ops.Tensor
+    @property
+    def output_classes(self):
+        return ops.Tensor
 
-  @property
-  def output_shapes(self):
-    return tensor_shape.scalar()
+    @property
+    def output_shapes(self):
+        return tensor_shape.scalar()
 
-  @property
-  def output_types(self):
-    return dtypes.string
+    @property
+    def output_types(self):
+        return dtypes.string
 
 
 dataset = MongoDBDataset("eccounting", "users")
-dataset = dataset.batch(2)
-#dataset = dataset.batch(2)
-#dataset.shuffle(buffer_size=20)
+repeat_dataset2 = dataset.repeat()
+batch_dataset = repeat_dataset2.batch(20)
 
-iterator = tf.data.Iterator.from_structure(dataset.output_types, dataset.output_shapes)
-#iterator = dataset.make_initializable_iterator()
-test_iterator = iterator.make_initializer(dataset)
+iterator = iterator_ops.Iterator.from_structure(batch_dataset.output_types)
+init_op = iterator.make_initializer(dataset)
+init_batch_op = iterator.make_initializer(batch_dataset)
 get_next = iterator.get_next()
 
+
 with tf.Session() as sess:
+    # Basic test: read from topic 0.
+    sess.run(init_batch_op, feed_dict={})
 
-    for _ in range(10):
+    for i in range(500):
+        print(sess.run(get_next))
 
-        # Basic test: read from topic 0.
-        sess.run(test_iterator)
-
-        while True:
-            try:
-                print(sess.run(get_next))
-            except tf.errors.OutOfRangeError:
-                break
+    print("Shutting down...")
