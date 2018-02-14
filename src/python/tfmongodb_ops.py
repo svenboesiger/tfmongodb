@@ -12,40 +12,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-"""Kafka Dataset."""
+"""MongoDB Dataset."""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-from tensorflow.contrib.util import loader
+import tensorflow as tf
+import os
+
 from tensorflow.python.data.ops.readers import Dataset
-from tensorflow.python.framework import common_shapes
 from tensorflow.python.framework import dtypes
 from tensorflow.python.framework import ops
 from tensorflow.python.framework import tensor_shape
-from tensorflow.python.platform import resource_loader
-from tensorflow.python.data.ops import iterator_ops
-
-import tensorflow as tf
 
 class MongoDBDataset(Dataset):
-    """A MongoDB Dataset that consumes the message.
+    """A MongoDB Dataset.
     """
 
     def __init__(self, database, collection):
-        """Create a MongoDataset.
+        """Create a MongoDB Dataset.
 
         Args:
-          topics: A `tf.string` tensor containing one or more subscriptions,
-                  in the format of [topic:partition:offset:length],
-                  by default length is -1 for unlimited.
-          servers: A list of bootstrap servers.
-          group: The consumer group id.
-          eof: If True, the kafka reader will stop on EOF.
-          timeout: The timeout value for the Kafka Consumer to wait
-                   (in millisecond).
+          database:     A `tf.string` tensor that contains the name of the
+                        database.
+          collection:   A `tf.string` tensor that contains the name of the
+                        collection.
         """
-        module = tf.load_op_library('./libTFMongoDB.so')
+        module = tf.load_op_library(os.path.join(os.path.dirname(__file__), 'libTFMongoDB.so'))
 
         super(MongoDBDataset, self).__init__()
         self._database = ops.convert_to_tensor(
@@ -69,23 +62,3 @@ class MongoDBDataset(Dataset):
     @property
     def output_types(self):
         return dtypes.string
-
-
-dataset = MongoDBDataset("eccounting", "users")
-repeat_dataset2 = dataset.repeat()
-batch_dataset = repeat_dataset2.batch(20)
-
-iterator = iterator_ops.Iterator.from_structure(batch_dataset.output_types)
-init_op = iterator.make_initializer(dataset)
-init_batch_op = iterator.make_initializer(batch_dataset)
-get_next = iterator.get_next()
-
-
-with tf.Session() as sess:
-    # Basic test: read from topic 0.
-    sess.run(init_batch_op, feed_dict={})
-
-    for i in range(500):
-        print(sess.run(get_next))
-
-    print("Shutting down...")

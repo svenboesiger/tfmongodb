@@ -35,7 +35,7 @@ std::string element_to_string(const bsoncxx::document::element &element) {
     case type::k_decimal128:output = element.get_decimal128().value.to_string();
       break;
     case type::k_date:output = std::to_string(element.get_date().to_int64());
-    case type::k_timestamp:output = std::to_string(element.get_timestamp().timestamp);
+    //case type::k_timestamp:output = std::to_string(element.get_timestamp().timestamp);
     default:
       // k_zero falls through which is an expected behaviour
       break;

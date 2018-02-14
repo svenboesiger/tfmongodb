@@ -14,8 +14,7 @@
     <list default="true" id="7be58784-7742-4c70-a946-1b838105dfa9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/cpp/connector/mongodb_connector.cpp" afterPath="$PROJECT_DIR$/src/cpp/connector/mongodb_connector.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/cpp/kernel/tfmongodb_kernel.cc" afterPath="$PROJECT_DIR$/src/cpp/kernel/tfmongodb_kernel.cc" />
+      <change beforePath="$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp" afterPath="$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp" />
       <change beforePath="$PROJECT_DIR$/src/python/tfmongodb_ops.py" afterPath="$PROJECT_DIR$/src/python/tfmongodb_ops.py" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -26,72 +25,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="reader_dataset_ops.cc" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/reader_dataset_ops.cc">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="378">
-                    <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="45" />
-                    <folding>
-                      <element signature="e#669#728#0" expanded="true" />
-                      <element signature="e#10274#19354#1" expanded="false" />
-                      <element signature="e#19593#20690#0" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="dataset.h" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/dataset.h">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="540">
-                    <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-                    <folding>
-                      <element signature="e#766#783#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="window_dataset.cc" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/window_dataset.cc">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="0">
-                    <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="sqlite_query_connection.cc" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/sql/sqlite_query_connection.cc">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-204">
-                    <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-                    <folding>
-                      <element signature="e#669#738#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
       <file leaf-file-name="tfmongodb_kernel.cc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cpp/kernel/tfmongodb_kernel.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state relative-caret-position="1512">
+              <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -99,8 +40,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dist.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist.sh">
+      <file leaf-file-name="bsonconverter.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cpp/converter/bsonconverter.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="805">
+              <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element_to_string.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cpp/converter/element_to_string.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -109,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="element_to_string.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="999">
+              <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -139,16 +90,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gen_dataset_ops.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv_tf1.5/local/lib/python2.7/site-packages/tensorflow/python/ops/gen_dataset_ops.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1093">
-              <caret line="1872" column="10" lean-forward="false" selection-start-line="1872" selection-start-column="7" selection-end-line="1872" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="random_dataset_op.cc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/random_dataset_op.cc">
           <provider selected="true" editor-type-id="text-editor">
@@ -159,22 +100,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tfmongodb_ops.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tfmongodb_ops.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/python/tfmongodb_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="655">
+              <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+              <folding>
+                <element signature="e#712#750#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kafka_dataset_ops.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/temp/kafka_dataset_ops.py">
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="777">
+              <caret line="155" column="46" lean-forward="false" selection-start-line="155" selection-start-column="46" selection-end-line="155" selection-end-column="46" />
+              <folding>
+                <element signature="e#183#226#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -207,8 +152,9 @@
       <find>instance</find>
       <find>out_tensors</find>
       <find>sq</find>
-      <find>string</find>
+      <find>Sql</find>
       <find>prefix</find>
+      <find>string</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,9 +178,12 @@
         <option value="$PROJECT_DIR$/src/cpp/connector/mongodb_connector.h" />
         <option value="$PROJECT_DIR$/src/tfmongodb_ops.py" />
         <option value="$PROJECT_DIR$/src/cpp/connector/mongodb_connector.cpp" />
-        <option value="$PROJECT_DIR$/src/python/tfmongodb_ops.py" />
         <option value="$PROJECT_DIR$/src/cpp/kernel/tfmongodb_kernel.cc" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp" />
+        <option value="$PROJECT_DIR$/src/cpp/converter/bsonconverter.cpp" />
+        <option value="$PROJECT_DIR$/dist/setup.py" />
+        <option value="$PROJECT_DIR$/src/python/tfmongodb_ops.py" />
       </list>
     </option>
   </component>
@@ -277,6 +226,11 @@
               <item name="TFMongoDB" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
               <item name="tfmongodb2" type="462c0819:PsiDirectoryNode" />
               <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TFMongoDB" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="tfmongodb2" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TFMongoDB" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
@@ -384,10 +338,18 @@
       <workItem from="1517419125857" duration="7227000" />
       <workItem from="1518510699603" duration="12176000" />
     </task>
+    <task id="LOCAL-00001" summary="Small updates to various section of the code">
+      <created>1518591655088</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1518591655088</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67634000" />
+    <option name="totallyTimeSpent" value="75491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="41" width="1920" height="2119" extended-state="4" />
@@ -457,6 +419,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Small updates to various section of the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small updates to various section of the code" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="1" />
@@ -464,11 +430,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tfmongodb_kernel.cc" />
-    <entry file="file://$PROJECT_DIR$/tfmongodb.cc" />
-    <entry file="file://$PROJECT_DIR$/kafka_dataset_ops.py" />
-    <entry file="file://$PROJECT_DIR$/kafka_test.py" />
-    <entry file="file://$PROJECT_DIR$/tfmongodb_ops.py" />
     <entry file="file://$PROJECT_DIR$/build.sh" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -550,38 +511,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cpp/converter/element_to_string.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cpp/converter/bsonconverter.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cpp/converter/bsonconverter.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp/kafka_dataset_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="46" column="21" lean-forward="false" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -598,14 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
           <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cpp/op/tfmongodb.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -643,49 +568,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/python/tfmongodb_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cpp/connector/mongodb_connector.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/window_dataset.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/reader_dataset_ops.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="45" />
-          <folding>
-            <element signature="e#669#728#0" expanded="true" />
-            <element signature="e#10274#19354#1" expanded="false" />
-            <element signature="e#19593#20690#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cpp/kernel/tfmongodb_kernel.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -702,6 +589,132 @@
         <state relative-caret-position="135">
           <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv_tf1.5/local/lib/python2.7/site-packages/tensorflow/python/ops/gen_dataset_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1093">
+          <caret line="1872" column="10" lean-forward="false" selection-start-line="1872" selection-start-column="7" selection-end-line="1872" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/kafka_dataset_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="44" column="7" lean-forward="true" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cpp/kernel/tfmongodb_kernel.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/reader_dataset_ops.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4995">
+          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding>
+            <element signature="e#669#728#0" expanded="false" />
+            <element signature="e#10274#19354#1" expanded="false" />
+            <element signature="e#19593#20690#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/dataset.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+          <folding>
+            <element signature="e#766#783#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/sql/sqlite_query_connection.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="e#669#738#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cpp/converter/bsonconverter.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="805">
+          <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cpp/connector/mongodb_connector.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tensorflow1.5/tensorflow/core/kernels/data/random_dataset_op.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="973">
+          <caret line="140" column="52" lean-forward="false" selection-start-line="140" selection-start-column="52" selection-end-line="140" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cpp/op/tfmongodb.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cpp/converter/element_to_string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="777">
+          <caret line="155" column="46" lean-forward="false" selection-start-line="155" selection-start-column="46" selection-end-line="155" selection-end-column="46" />
+          <folding>
+            <element signature="e#183#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/python/tfmongodb_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+          <folding>
+            <element signature="e#712#750#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
