@@ -11,12 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7be58784-7742-4c70-a946-1b838105dfa9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp" afterPath="$PROJECT_DIR$/src/cpp/converter/element_to_string.cpp" />
-      <change beforePath="$PROJECT_DIR$/src/python/tfmongodb_ops.py" afterPath="$PROJECT_DIR$/src/python/tfmongodb_ops.py" />
-    </list>
+    <list default="true" id="7be58784-7742-4c70-a946-1b838105dfa9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -103,8 +98,8 @@
       <file leaf-file-name="tfmongodb_ops.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/python/tfmongodb_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+            <state relative-caret-position="547">
+              <caret line="46" column="63" lean-forward="true" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
               <folding>
                 <element signature="e#712#750#0" expanded="true" />
               </folding>
@@ -349,7 +344,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75491000" />
+    <option name="totallyTimeSpent" value="75961000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="41" width="1920" height="2119" extended-state="4" />
@@ -710,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/python/tfmongodb_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+        <state relative-caret-position="547">
+          <caret line="46" column="63" lean-forward="true" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
           <folding>
             <element signature="e#712#750#0" expanded="true" />
           </folding>

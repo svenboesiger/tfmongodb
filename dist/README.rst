@@ -1,33 +1,57 @@
-A sample Python project
-=======================
+TFMongoDB
+=========
+TFMongoDB is a C++ implemented dataset op for google's tensorflow that lets you 
+connect to your MongoDatabase nativly. Hence you can access your mongodb stored
+documents more efficiently.
 
-A sample project that exists as an aid to the `Python Packaging User Guide
-<https://packaging.python.org>`_'s `Tutorial on Packaging and Distributing
-Projects <https://packaging.python.org/en/latest/distributing.html>`_.
+Currently Linux is supported while Tensorflow >= 1.5 is required.
 
-This projects does not aim to cover best practices for Python project
-development as a whole. For example, it does not provide guidance or tool
-recommendations for version control, documentation, or testing.
 
-`The source for this project is available here
-<https://github.com/pypa/sampleproject>`_.
+Installation
+------------
+In order to use the dataset you need to install it with pip:
 
-Most of the configuration for a Python project is done in the ``setup.py``
-file, an example of which is included in this project. You should edit this
-file accordingly to adapt this sample project to your needs.
+::
+	pip install tfmongodb
 
-----
 
-This is the README file for the project.
+Usage
+-----
+TFMongoDB can be accessed through the MongoDBDataset:
 
-The file should use UTF-8 encoding and be written using `reStructuredText
-<http://docutils.sourceforge.net/rst.html>`_. It
-will be used to generate the project webpage on PyPI and will be displayed as
-the project homepage on common code-hosting services, and should be written for
-that purpose.
+::
+	dataset = MongoDBDataset(<database_name>, <collection_name>)
 
-Typical contents for this file would include an overview of the project, basic
-usage examples, etc. Generally, including the project changelog in here is not
-a good idea, although a simple "What's New" section for the most recent version
-may be appropriate.
+example:
+
+::
+	from tfmongodb import MongoDBDataset
+	from tensorflow.python.framework import ops
+	from tensorflow.python.data.ops import iterator_ops
+	import tensorflow as tf
+
+	CSV_TYPES = [[""], [""], [0]]
+
+	def _parse_line(line):
+	    # Decode the line into its fields
+	    fields = tf.decode_csv(line, record_defaults=CSV_TYPES)
+	    return fields
+
+	dataset = MongoDBDataset("eccounting", "creditors")
+	dataset = dataset.map(_parse_line)
+	repeat_dataset2 = dataset.repeat()
+	batch_dataset = repeat_dataset2.batch(20)
+
+	iterator = iterator_ops.Iterator.from_structure(batch_dataset.output_types)
+	#init_op = iterator.make_initializer(dataset)
+	init_batch_op = iterator.make_initializer(batch_dataset)
+	get_next = iterator.get_next()
+
+
+	with tf.Session() as sess:
+	    # Basic test: read from topic 0.
+	    sess.run(init_batch_op, feed_dict={})
+
+	    for i in range(5):
+	        print(sess.run(get_next))
 
