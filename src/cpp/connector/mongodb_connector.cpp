@@ -62,10 +62,12 @@ bool MongoDBConnector::isStringInDocumentsName(mongocxx::cursor cursor, std::str
     if (name.compare(searchString) == 0)
       return true;
   }
+  return false;
 }
 
 tensorflow::Status MongoDBConnector::query_database() {
   this->cursor_ = new mongocxx::cursor(coll_.find(document{} << finalize));
+  return tensorflow::Status::OK();
 }
 
 tensorflow::Status MongoDBConnector::retrieve_row(std::tuple<std::string, std::string> &mongodb_row) {
