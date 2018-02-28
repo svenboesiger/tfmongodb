@@ -45,12 +45,12 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.1.0',  # Required
+    version='0.1.3',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='A sample Python project',  # Required
+    description='A Tensorflow MongoDB connector',  # Required
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -60,7 +60,7 @@ setup(
     #
     # This field corresponds to the "Description" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#description-optional
-    #long_description=long_description,  # Optional
+    long_description=long_description,  # Optional
 
     # This should be a valid link to your project's main homepage.
     #
@@ -165,10 +165,10 @@ setup(
     #
     # For example, the following would provide a command called `sample` which
     # executes the function `main` from this package when invoked:
-    entry_points={  # Optional
-        'console_scripts': [
-            'sample=sample:main',
-        ],
-    },
+    #entry_points={  # Optional
+    #    'console_scripts': [
+    #        'sample=sample:main',
+    #    ],
+    #},
     distclass=BinaryDistribution
 )
