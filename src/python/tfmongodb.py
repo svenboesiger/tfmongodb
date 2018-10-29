@@ -21,7 +21,7 @@ from __future__ import print_function
 import tensorflow as tf
 import os
 
-from tensorflow.python.data.ops.readers import Dataset
+from tensorflow.data import Dataset
 from tensorflow.python.framework import dtypes
 from tensorflow.python.framework import ops
 from tensorflow.python.framework import tensor_shape
@@ -29,8 +29,8 @@ from tensorflow.python.framework import tensor_shape
 class MongoDBDataset(Dataset):
     """A MongoDB Dataset.
     """
-
-    def __init__(self, database, collection):
+    __MODULE_NAME="XXX"
+    def __init__(self, database, collection, uri=""):
         """Create a MongoDB Dataset.
 
         Args:
@@ -38,16 +38,18 @@ class MongoDBDataset(Dataset):
                         database.
           collection:   A `tf.string` tensor that contains the name of the
                         collection.
+          uri       :   A `tf.string` tensor that specifies the MongoDB URI host
         """
-        module = tf.load_op_library(os.path.join(os.path.dirname(__file__), 'libTFMongoDB.so'))
+        module = tf.load_op_library(os.path.join(os.path.dirname(__file__), self.__MODULE_NAME))
 
         super(MongoDBDataset, self).__init__()
         self._database = ops.convert_to_tensor(
             database, dtype=dtypes.string, name="database")
         self._collection = ops.convert_to_tensor(
             collection, dtype=dtypes.string, name="collection")
-        self.rr_ = module.mongo_dataset(self._database, self._collection)
-
+        self._uri = ops.convert_to_tensor(
+            uri, dtype=dtypes.string, name="uri")
+        self.rr_ = module.mongo_dataset(self._database, self._collection, self._uri)
 
     def _as_variant_tensor(self):
         return self.rr_
