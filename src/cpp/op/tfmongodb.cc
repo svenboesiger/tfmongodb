@@ -23,14 +23,16 @@ namespace tensorflow {
 REGISTER_OP("MongoDataset")
     .Input("database: string")
     .Input("collection: string")
+    .Input("uri: string")
     .Output("handle: variant")
     .SetIsStateful()
     .SetShapeFn(shape_inference::ScalarShape)
     .Doc(R"doc(
 Creates a dataset that retrieves documents from a mongo collection.
 
-database: A `tf.string` tensor containing the name of the database to connect to.
-collection: The collection to retrieve.
+database: A `tf.string` tensor of the database name.
+collection: A `tf.string` tensor of the collection name.
+uri: A `tf.string` tensor of the MongoDB URI.
 )doc");
 
 }  // namespace tensorflow
