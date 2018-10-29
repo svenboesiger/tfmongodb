@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "tensorflow/core/kernels/data/dataset.h"
+#include "tensorflow/core/framework/dataset.h"
 #include "tensorflow/core/framework/partial_tensor_shape.h"
 #include "tensorflow/core/framework/tensor.h"
 #include "../connector/mongodb_connector.h"
@@ -33,18 +33,22 @@ class MongoDatasetOp : public DatasetOpKernel {
     string collection;
     OP_REQUIRES_OK(ctx, ParseScalarArgument<string>(ctx, "collection",
                                                     &collection));
-
-    *output = new Dataset(ctx, database, collection);
+    string uri;
+    OP_REQUIRES_OK(ctx, ParseScalarArgument<string>(ctx, "uri",
+                                                    &uri));
+    *output = new Dataset(ctx, database, collection, uri);
   }
 
  private:
 
-  class Dataset : public GraphDatasetBase {
+  class Dataset : public DatasetBase {
    public:
-    Dataset(OpKernelContext *ctx, const string &database, const string &collection)
-        : GraphDatasetBase(ctx), database_(database), collection_(collection) {}
+    Dataset(OpKernelContext *ctx, const string &database, const string &collection,
+            const string &uri)
+        : DatasetBase(DatasetContext(ctx)), database_(database), collection_(collection), 
+            uri_(uri) {}
 
-    std::unique_ptr<IteratorBase> MakeIterator(
+    std::unique_ptr<IteratorBase> MakeIteratorInternal (
         const string &prefix) const override {
       return std::unique_ptr<IteratorBase>(
           new Iterator({this, strings::StrCat(prefix, "::TextLine")}));
@@ -61,17 +65,20 @@ class MongoDatasetOp : public DatasetOpKernel {
       return *shapes;
     }
 
-    string DebugString() override { return "MongoDBDatasetOp::Dataset"; }
+    string DebugString() const override { return "MongoDBDatasetOp::Dataset"; }
 
-   protected:
-    Status AsGraphDefInternal(DatasetGraphDefBuilder *b,
+  protected:
+    Status AsGraphDefInternal(SerializationContext *ctx,
+                              DatasetGraphDefBuilder *b,
                               Node **output) const override {
       Node *database = nullptr;
       Node *collection = nullptr;
+      Node *uri = nullptr;
       TF_RETURN_IF_ERROR(b->AddScalar(database_, &database));
       TF_RETURN_IF_ERROR(b->AddScalar(collection_, &collection));
+      TF_RETURN_IF_ERROR(b->AddScalar(uri_, &uri));
       TF_RETURN_IF_ERROR(b->AddDataset(
-          this, {database, collection}, output));
+          this, {database, collection, uri}, output));
 
       return Status::OK();
     }
@@ -90,7 +97,8 @@ class MongoDatasetOp : public DatasetOpKernel {
         if (!this->connector_) {
           this->connector_ = std::unique_ptr<MongoDBConnector>(
               new MongoDBConnector{dataset()->database_,
-                                   dataset()->collection_});
+                                   dataset()->collection_, 
+                                   dataset()->uri_});
           TF_RETURN_IF_ERROR(this->connector_->connect());
           TF_RETURN_IF_ERROR(this->connector_->query_database());
         }
@@ -135,11 +143,13 @@ class MongoDatasetOp : public DatasetOpKernel {
       mutex mu_;
       std::string database_name_ = "";
       std::string collection_name_ = "";
+      std::string uri_name_ = "";
       std::unique_ptr<MongoDBConnector> connector_ = nullptr;
     };
 
     const string database_;
     const string collection_;
+    const string uri_;
   };
   mongocxx::instance inst_{};
 };
