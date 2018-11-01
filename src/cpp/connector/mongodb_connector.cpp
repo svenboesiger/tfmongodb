@@ -51,7 +51,7 @@ tensorflow::Status MongoDBConnector::connect_to_server() {
   else
     uri = mongocxx::uri{uri_};
 
-  conn_ = mongocxx::client{mongocxx::uri{}};
+  conn_ = mongocxx::client{uri};
   return tensorflow::Status::OK();
 }
 

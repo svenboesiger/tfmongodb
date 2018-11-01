@@ -4,7 +4,7 @@ project(TFMongoDB)
 set(CMAKE_CXX_STANDARD 11)
 
 if(APPLE)
-    set(ADDITIONAL_GCC_OPTIONS "-undefined dynamic_lookup")
+    set(ADDITIONAL_GCC_OPTIONS "-DNDEBUG")
 endif()
 set( CMAKE_CXX_FLAGS "${ADDITIONAL_GCC_OPTIONS}" )
 
@@ -25,7 +25,7 @@ find_package(libmongocxx)
 find_package(libbsoncxx)
 include_directories(${LIBMONGOCXX_INCLUDE_DIRS} ${LIBBSONCXX_INCLUDE_DIRS})
 
-set(PYTHON_CMD "${CMAKE_SOURCE_DIR}/venv_tf1.5/bin/python")
+set(PYTHON_CMD "${CMAKE_SOURCE_DIR}/venv_tf/bin/python")
 set(PYTHON_CMD_PARAMETER "-c 'import tensorflow as tf\; print(tf.sysconfig.get_include())'")
 exec_program(${PYTHON_CMD}
         ARGS ${PYTHON_CMD_PARAMETER}
