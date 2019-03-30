@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.9)
 project(TFMongoDB)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -ggdb")
+link_directories( /usr/local/lib ) # for specific path
 
 if(APPLE)
     set(ADDITIONAL_GCC_OPTIONS "-DNDEBUG")

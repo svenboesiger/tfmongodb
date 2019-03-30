@@ -1,9 +1,14 @@
 cmake-build-debug/
 temp/
-venv_tf1.5/
-.idea/	
+venv_tf/
+.idea/
+.vscode/	
 dist/build/
 dist/dist/
 dist/tfmongodb/
 dist/TFMongoDB.egg-info
 tests/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
