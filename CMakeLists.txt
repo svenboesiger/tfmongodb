@@ -6,7 +6,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 -ggdb")
 link_directories( /usr/local/lib ) # for specific path
 
 if(APPLE)
-    set(ADDITIONAL_GCC_OPTIONS "-DNDEBUG")
+    set(ADDITIONAL_GCC_OPTIONS "-undefined dynamic_lookup")
 endif()
 set( CMAKE_CXX_FLAGS "${ADDITIONAL_GCC_OPTIONS}" )
 
