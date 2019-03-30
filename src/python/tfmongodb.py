@@ -56,12 +56,16 @@ class MongoDBDataset(Dataset):
 
     @property
     def output_classes(self):
-        return ops.Tensor
+        return tf.Tensor
 
     @property
     def output_shapes(self):
-        return tensor_shape.scalar()
+        return  tf.TensorShape([])
 
     @property
     def output_types(self):
         return dtypes.string
+
+    def _inputs(self):
+        """Returns a list of the input datasets of the dataset."""
+        return []
