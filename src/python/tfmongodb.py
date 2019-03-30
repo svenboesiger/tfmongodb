@@ -26,10 +26,12 @@ from tensorflow.python.framework import dtypes
 from tensorflow.python.framework import ops
 from tensorflow.python.framework import tensor_shape
 
-class MongoDBDataset(Dataset):
+__MODULE_NAME="XXX"
+module = tf.load_op_library(os.path.join(os.path.dirname(__file__), __MODULE_NAME))
+
+class MongoDBDataset(tf.data.Dataset):
     """A MongoDB Dataset.
     """
-    __MODULE_NAME="XXX"
     def __init__(self, database, collection, uri=""):
         """Create a MongoDB Dataset.
 
@@ -40,8 +42,6 @@ class MongoDBDataset(Dataset):
                         collection.
           uri       :   A `tf.string` tensor that specifies the MongoDB URI host
         """
-        module = tf.load_op_library(os.path.join(os.path.dirname(__file__), self.__MODULE_NAME))
-
         super(MongoDBDataset, self).__init__()
         self._database = ops.convert_to_tensor(
             database, dtype=dtypes.string, name="database")
@@ -58,9 +58,11 @@ class MongoDBDataset(Dataset):
     def output_classes(self):
         return tf.Tensor
 
+
     @property
     def output_shapes(self):
         return  tf.TensorShape([])
+
 
     @property
     def output_types(self):
