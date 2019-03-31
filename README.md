@@ -11,6 +11,46 @@ In order to use the dataset you need to install it with pip:
 
     pip install tfmongodb
 
+## Install from source (Linux)
+
+To use the tfmongodb you first have to install mongoc (http://mongoc.org/libmongoc/current/installing.html) and mongocxx (http://mongocxx.org/mongocxx-v3/installation/) libraries (follow the official
+manual for your distribution). 
+
+Afterwards you clone the repo:
+
+    git clone https://github.com/svenboesiger/tfmongodb.git
+
+Change to the directory:
+
+    cd tfmongodb
+
+Create a virtualenv called "venv_tf", switch to the directory, initialize and install tensorflow:
+
+    virtualenv venv_tf
+    cd venv_tf/
+    source bin/activate
+    pip install tensorflow
+
+Create the makefile:
+
+    cd ..
+    cmake .
+
+Compile and link the library:
+
+    make
+
+Create the pip package:
+
+    cd dist/
+    ./build_wheel.sh
+
+Install the wheel:
+
+    cd ..
+    cd dist
+    pip install TF<Version>
+
 
 ## Usage
 
